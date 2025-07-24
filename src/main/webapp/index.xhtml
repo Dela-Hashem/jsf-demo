@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Hello JSF</title>
+</h:head>
+<h:body>
+    <h3>Hello #{helloBean.name}!</h3>
+    <h:form>
+        <h:inputText value="#{helloBean.name}" />
+        <h:commandButton value="Say Hello" />
+    </h:form>
+
+
+    <h:form>
+        <p:outputLabel for="name" value="Your Name:" />
+        <p:inputText id="name" value="#{helloBean.name}" />
+
+        <p:commandButton value="Greet Me" update="msg" />
+
+        <h:panelGroup id="msg">
+            <p:outputLabel value="Hello #{helloBean.name}!" />
+        </h:panelGroup>
+    </h:form>
+
+
+    <h:form>
+        <!-- نمایش پیام‌ها -->
+        <p:growl id="messages" showDetail="true" />
+
+        <p:outputLabel for="name" value="Your Name:" />
+        <p:inputText id="name" value="#{helloBean.name}" required="true" label="Name" />
+
+        <!-- ارسال فرم -->
+        <p:commandButton value="Greet Me"
+                         action="#{helloBean.sayHello}"
+                         update="messages,msg" />
+
+        <h:panelGroup id="msg">
+            <p:outputLabel value="Hello #{helloBean.name}!" />
+        </h:panelGroup>
+    </h:form>
+
+
+</h:body>
+</html>
