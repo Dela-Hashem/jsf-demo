@@ -23,4 +23,8 @@ public class HelloBean {
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", "Hello " + name + "!"));
     }
+    public String goToWelcome() {
+        return "welcome?faces-redirect=true"; // یا بدون redirect: return "welcome";
+    }
+
 }

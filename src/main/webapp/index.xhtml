@@ -40,6 +40,10 @@
         <h:panelGroup id="msg">
             <p:outputLabel value="Hello #{helloBean.name}!" />
         </h:panelGroup>
+        <p:commandButton value="Go to Welcome Page"
+                         action="#{helloBean.goToWelcome}"
+                         ajax="false" />
+
     </h:form>
 
 
